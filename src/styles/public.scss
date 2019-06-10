@@ -1,0 +1,40 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.p-clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.p-clearfix {
+    zoom: 1;
+}
+
+.p-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    >div {
+        flex: none;
+    }
+    .p-flex-scroll {
+        flex: auto;
+        height: 100%;
+        overflow: auto;
+    }
+}
+
+.p-footer-btn{
+	padding-bottom: 50px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.p-level{
+	padding-right: 15px;
+	padding-left: 15px;
+}
