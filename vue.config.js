@@ -8,18 +8,19 @@ module.exports = {
     port: port,
     open: false,
     proxy: {
-      '/wxapi': {
-        target: 'https://wxservice-dev.pospal.cn/wxapi/',
+      '/api': {
+        target: 'http://localhost:3000/',
         // target: 'http://192.168.2.197:29429/',
         secure: false,
         changeOrigin: true,
         pathRewrite: {
-          '^/wxapi': ''
+          '^/api': ''
         }
       }
     },
     disableHostCheck: true,
   },
+  lintOnSave: false,
   css: {
     loaderOptions: {
       postcss: {
