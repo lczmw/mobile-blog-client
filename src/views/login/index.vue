@@ -5,13 +5,13 @@
             <mt-field label="密码" placeholder="请输入" type="password" v-model="password"></mt-field>
         </div>
         <div class="p-footer-btn">
-        	<mt-button type="primary" size='large' @click.native="handleClick">注册</mt-button>
+        	<mt-button type="primary" size='large' @click.native="handleClick">登录</mt-button>
         </div>
     </div>
 </template>
 <script>
 import { Field as MtField, Button as MtButton } from 'mint-ui';
-import { register } from '@/api'
+import { login } from '@/api'
 
 export default {
     components: {
@@ -27,7 +27,7 @@ export default {
 
     methods: {
         handleClick() {
-            register({
+            login({
                 name: this.username,
                 password: this.password,
             })

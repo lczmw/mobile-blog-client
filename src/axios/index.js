@@ -1,16 +1,19 @@
 import axios from 'axios'
 import Vue from 'vue'
 
+
 let instance = axios.create({
 	baseURL: '/api',
-	timeout: 60000,
+	timeout: 10000,
   withCredentials: false,
 })
 
 // // request拦截器
 
 instance.interceptors.request.use(config => {
- 
+
+  Vue.prototype.$indicator.open();
+
   return config
 }, error => {
   // Do something with request error
@@ -21,7 +24,9 @@ instance.interceptors.request.use(config => {
 // // respone拦截器
 instance.interceptors.response.use(
   response => {
- 
+
+    Vue.prototype.$indicator.close();
+
     const res = response.data
 
     if (response.status !== 200) {
@@ -29,7 +34,11 @@ instance.interceptors.response.use(
     } else {
    
       if (response.config.method === 'post'){
-          if (response.data.successed) {
+          response.data.message && Vue.prototype.$toast({
+            message: response.data.message,
+            duration: 2000
+          })
+          if (response.data.code === 200) {
             return response.data;
           } else {           
              return Promise.reject(response.data);
@@ -42,6 +51,12 @@ instance.interceptors.response.use(
     }
   },
   error => {
+
+    Vue.prototype.$indicator.close();
+    Vue.prototype.$toast({
+      message: error,
+      duration: 3000
+    })
     // console.log('err' + error)// for debug
     return Promise.reject(error)
   }
