@@ -3,9 +3,9 @@ import Vue from 'vue'
 
 
 let instance = axios.create({
-	baseURL: '/api',
+	baseURL: 'http://local.dev.pospal.cn:3000/blog',
 	timeout: 10000,
-  withCredentials: false,
+  withCredentials: true,
 })
 
 // // request拦截器

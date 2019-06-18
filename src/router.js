@@ -7,25 +7,31 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [{
             path: '',
-            redirect: '/register'
+            redirect: '/article'
         },
         {
             path: '/register',
             name: 'register',
             meta: { title: '注册' },
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import( /* webpackChunkName: "about" */ './views/register/index.vue')
+            component: () => import('./views/register/index.vue')
         },
         {
             path: '/login',
             name: 'login',
             meta: { title: '登录' },
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import( /* webpackChunkName: "about" */ './views/login/index.vue')
+            component: () => import('./views/login/index.vue')
+        },
+        {
+            path: '/article',
+            name: 'article',
+            meta: { title: '全部文章' },
+            component: () => import('./views/article/list.vue')
+        },
+        {
+            path: '/release',
+            name: 'release',
+            meta: { title: '发文章' },
+            component: () => import('./views/article/list.vue')
         }
     ]
 })
