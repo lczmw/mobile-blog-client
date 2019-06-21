@@ -1,5 +1,5 @@
 <template>
-  <div class="full">
+  <div class="p-full">
     <base-header @on-right-click="handleHeaderRightClick">
       <span
         slot="right"
@@ -45,7 +45,11 @@ export default {
       release({
         title: this.title.trim(),
         content: this.content.trim()
-      });
+      })
+        .then(() => {
+          this.$router.go(-1);
+        })
+        .catch(() => {});
     }
   },
 
@@ -61,7 +65,7 @@ export default {
   height: 40px;
 }
 .header-text {
-  font-size: 18px;
+  font-size: 16px;
 }
 .icon-bianji {
   margin-right: 20px;

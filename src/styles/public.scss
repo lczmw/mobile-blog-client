@@ -5,7 +5,7 @@ body {
 }
 
 .p-clearfix:after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -41,4 +41,8 @@ body {
 
 .p-full {
   height: 100%;
+}
+
+.p-page-bg {
+  background: #f5f5f5;
 }

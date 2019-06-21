@@ -1,8 +1,8 @@
-import axios from "axios";
-import Vue from "vue";
+import axios from 'axios';
+import Vue from 'vue';
 
 let instance = axios.create({
-  baseURL: "http://local.dev.pospal.cn:3000/blog",
+  baseURL: 'http://local.dev.pospal.cn:3000/blog',
   timeout: 10000,
   withCredentials: true
 });
@@ -30,16 +30,16 @@ instance.interceptors.response.use(
     const res = response.data;
 
     if (response.status !== 200) {
-      return Promise.reject("error");
+      return Promise.reject('error');
     } else {
-      if (response.config.method === "post") {
+      if (response.config.method === 'post') {
         res.message &&
           Vue.prototype.$toast({
             message: res.message,
             duration: 2000
           });
         if (res.code === 200) {
-          return res;
+          return res.data || '';
         } else {
           return Promise.reject(res);
         }

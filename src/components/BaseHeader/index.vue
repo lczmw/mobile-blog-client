@@ -62,6 +62,7 @@ export default {
   align-items: center;
   height: 44px;
   border-bottom: 1px solid #f2f2f2;
+  background-color: #fff;
 }
 .left {
   flex: none;
@@ -73,6 +74,7 @@ export default {
   flex: auto;
   display: flex;
   justify-content: center;
+  font-size: 17px;
 }
 .right {
   flex: none;

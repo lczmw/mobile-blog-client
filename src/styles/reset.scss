@@ -1,35 +1,69 @@
-body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption, {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-style: normal;
-    text-decoration: none;
-    border: none;
-    font-weight: normal;
-    font-family: "Arial","Microsoft Yahei";
-    box-sizing: border-box;
-    -webkit-tap-highlight-color:transparent;
-    -webkit-font-smoothing: antialiased;
-    &:hover{
-        outline: none;
-    }
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  font-weight: normal;
+  font-family: 'Arial', 'Microsoft Yahei';
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover {
+    outline: none;
+  }
 }
 
-table{
-  border-collapse:collapse;
+table {
+  border-collapse: collapse;
 }
 
-
-input[type="button"], input[type="submit"], input[type="search"], input[type="reset"], input[type="text"] {
-    -webkit-appearance: none;
+input[type='button'],
+input[type='submit'],
+input[type='search'],
+input[type='reset'],
+input[type='text'] {
+  -webkit-appearance: none;
 }
 
-input:focus{
-    outline:none;
+input:focus {
+  outline: none;
 }
 
-textarea { -webkit-appearance: none;}  
+textarea {
+  -webkit-appearance: none;
+}
 
 .iconfont {
-    font-size: 30px!important;
+  font-size: 28px;
 }
