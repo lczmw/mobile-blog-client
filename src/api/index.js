@@ -39,3 +39,33 @@ export const getAllArticle = data =>
     method: 'post',
     data
   });
+
+export const getLoginInfo = data =>
+  axios({
+    url: '/user/getLoginInfo',
+    method: 'post',
+    data
+  });
+
+export const logout = data =>
+  axios({
+    url: '/user/logout',
+    method: 'post',
+    data
+  });
+
+// articleGetDetail
+export const articleGetDetail = data =>
+  axios({
+    url: '/article/getDetail',
+    method: 'post',
+    data
+  });
+
+// articleGetDetail
+export const articleGetComments = data =>
+  axios({
+    url: '/article/getComments',
+    method: 'post',
+    data
+  });

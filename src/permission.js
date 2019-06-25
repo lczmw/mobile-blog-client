@@ -1,26 +1,29 @@
-import router from '@/router'
-import { getToken } from '@/utils/token'
+import router from '@/router';
+import store from '@/store/';
 
-const whiteList = ['/login']
+const whiteList = ['/login'];
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+  document.title = to.meta.title || '';
+  let hasToken;
+  try {
+    await store.dispatch('getUserInfo');
+    hasToken = true;
+  } catch (error) {
+    hasToken = false;
+  }
 
-    document.title = to.meta.title || '';
-
-    const hasToken = getToken();
-
-    if (hasToken) {
-        if (to.path === '/login') {
-            next({ path: '/' })
-        } else {
-            next()
-        }
+  if (hasToken) {
+    if (to.path === '/login') {
+      next({ path: '/' });
     } else {
-        if (whiteList.includes(to.path)) {
-            next();
-        } else {
-            next(`/login?redirect=${to.path}`);
-        }
+      next();
     }
-
-})
+  } else {
+    if (whiteList.includes(to.path)) {
+      next();
+    } else {
+      next(`/login?redirect=${to.path}`);
+    }
+  }
+});

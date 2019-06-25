@@ -5,16 +5,28 @@
 </template>
 
 <script>
-import { LoginIn } from '@/api';
+import { articleGetDetail, articleGetComments } from '@/api';
 
 export default {
   data() {
     return {};
   },
 
-  methods: {},
+  methods: {
+    initData() {
+      let { id } = this.$route.query;
+      articleGetDetail({
+        id
+      });
+      articleGetComments({
+        id
+      });
+    }
+  },
 
-  created() {}
+  created() {
+    this.initData();
+  }
 };
 </script>
 

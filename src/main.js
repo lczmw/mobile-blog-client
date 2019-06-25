@@ -25,8 +25,10 @@ requireComponent.keys().forEach(fileName => {
   Vue.component(componentName, componentConfig.default || componentConfig);
 });
 
-// var socket = io('//localhost:3000');
-// socket.emit('test message', 112233);
+// let socket = io('//localhost:3000');
+// socket.on('sign out', () => {
+//   console.log('sign out');
+// });
 
 new Vue({
   router,

@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { getAllArticle } from '@/api';
+import { getAllArticle, logout } from '@/api';
 
 export default {
   data() {
@@ -53,7 +53,13 @@ export default {
     handleEditClick() {
       this.$router.push('/release');
     },
-    handleHanderLeftClick() {},
+    handleHanderLeftClick() {
+      logout()
+        .then(() => {
+          this.$router.push('/login');
+        })
+        .catch(() => {});
+    },
     getArticle() {
       getAllArticle({
         pageIndex: 0,
@@ -70,7 +76,6 @@ export default {
   },
 
   created() {
-    console.log(location);
     this.getArticle();
   }
 };
