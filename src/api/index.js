@@ -69,3 +69,11 @@ export const articleGetComments = data =>
     method: 'post',
     data
   });
+
+// comment
+export const comment = data =>
+  axios({
+    url: '/article/comment',
+    method: 'post',
+    data
+  });
